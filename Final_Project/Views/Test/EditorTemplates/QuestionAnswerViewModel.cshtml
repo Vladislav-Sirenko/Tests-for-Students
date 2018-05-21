@@ -1,0 +1,16 @@
+﻿@model PL.Models.QuestionAnswerViewModel
+
+
+<h2>View</h2>
+<div>
+    @Html.HiddenFor(x=>x.Question_ID)
+    <h3>@Model.content</h3>
+    @foreach(var a in Model.Answers)
+    {
+    <p>
+        @Html.RadioButtonFor(b=>b.SelectedAnswer,a.Answer_ID) @a.content
+    </p>
+    }
+
+</div>
+

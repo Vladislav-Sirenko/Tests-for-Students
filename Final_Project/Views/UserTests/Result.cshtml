@@ -1,0 +1,28 @@
+﻿@model  IEnumerable<PL.Models.ResultViewModel>
+@{
+    ViewBag.Title = "Result";
+}
+
+<h2>Result</h2>
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.Raw(ViewBag.Topic)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelitem => item.Date)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelitem => item.Score)/ @Html.Raw(ViewBag.Count)
+            </td>
+        </tr>
+    }
+    @Html.ActionLink("Back to List", "Index")
+
+</table>
