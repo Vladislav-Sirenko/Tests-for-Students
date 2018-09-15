@@ -21,9 +21,11 @@ namespace DAL.Repositories
             context.ClientProfiles.Add(item);
             context.SaveChanges();
         }
-        public IEnumerable<ClientProfile> GetAll()
+        public void Delete(string id)
         {
-            return context.ClientProfiles.ToList();
+            var User=context.ClientProfiles.Find(id);
+            context.ClientProfiles.Remove(User);
+            context.SaveChanges();
         }
 
 

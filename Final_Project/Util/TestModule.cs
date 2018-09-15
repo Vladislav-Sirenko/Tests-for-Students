@@ -21,7 +21,6 @@ namespace Final_Project.Util
             Bind<IResultService>().To<ResultService>();
             Bind<IUserService>().To<UserService>();
             Bind<IServiceCreator>().To<ServiceCreator>();
-            Bind<IUserManageService>().To<UserManageService>();
             
         }
     }

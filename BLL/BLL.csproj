@@ -62,10 +62,8 @@
   <ItemGroup>
     <Compile Include="BusinessModels\CheckTest.cs" />
     <Compile Include="DTO\AnswerDTO.cs" />
-    <Compile Include="DTO\ClientProfileDTO.cs" />
     <Compile Include="DTO\QuestionDTO.cs" />
     <Compile Include="DTO\ResultDTO.cs" />
-    <Compile Include="DTO\StudentDTO.cs" />
     <Compile Include="DTO\TestDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Infrastructure\OperationDetails.cs" />
@@ -78,7 +76,6 @@
     <Compile Include="Interfaces\ITestChecking.cs" />
     <Compile Include="Interfaces\ITestForming.cs" />
     <Compile Include="Interfaces\ITestService.cs" />
-    <Compile Include="Interfaces\IUserManageService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AnswerService.cs" />
@@ -88,7 +85,6 @@
     <Compile Include="Services\TestChecking.cs" />
     <Compile Include="Services\TestForming.cs" />
     <Compile Include="Services\TestService.cs" />
-    <Compile Include="Services\UserManageService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,7 +9,7 @@ namespace DAL.Interfaces
 {
     public interface IClientManager : IDisposable
     {
-        IEnumerable<ClientProfile> GetAll();
         void Create(ClientProfile item);
+        void Delete(string id);
     }
 }

@@ -1,4 +1,5 @@
-﻿using BLL.DTO;
+﻿using AutoMapper;
+using BLL.DTO;
 using BLL.Infrastructure;
 using BLL.Interfaces;
 using DAL.Entities;
@@ -71,7 +72,28 @@ namespace BLL.Services
             }
             await Create(adminDto);
         }
+        public IEnumerable<UserDTO> GetUsers()
+        {
+            var Users = Database.UserManager.Users.ToList();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ApplicationUser,UserDTO>()).CreateMapper();
+            var UsersDTO = mapper.Map<IEnumerable<ApplicationUser>, IEnumerable<UserDTO>>(Users);
+            
+            return UsersDTO;
+        }
+        public void DeleteUser(string id)
+        {
+            var User = Database.UserManager.FindById(id);
+            Database.ClientManager.Delete(id);
+            Database.UserManager.Delete(User);
+        }
+        public UserDTO GetUser(string id)
+        {
+            var User = Database.UserManager.FindById(id);
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ApplicationUser, UserDTO>()).CreateMapper();
+            var UsersDTO = mapper.Map<ApplicationUser, UserDTO>(User);
 
+            return UsersDTO;
+        }
         public void Dispose()
         {
             Database.Dispose();

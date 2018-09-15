@@ -17,7 +17,6 @@ namespace DAL.Repositories
         private Final_ProjectContext db;
         private EFGenericRepository<Test> TestRepository;
         private EFGenericRepository<Answer> AnswerRepository;
-       
         private EFGenericRepository<Question> QuestionRepository;
         private EFGenericRepository<Result> ResultRepository;
 

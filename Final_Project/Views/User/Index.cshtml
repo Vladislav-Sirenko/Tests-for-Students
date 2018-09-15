@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BLL.DTO.ClientProfileDTO>
+﻿@model IEnumerable<BLL.DTO.UserDTO>
 
 @{
     ViewBag.Title = "Index";
@@ -27,12 +27,10 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit"/*, new { id = item.Test_ID }) */)|
-                @Html.ActionLink("Details", "Details"/*, "Tests", new { id = item.Test_ID }, null*/) |
-                @Html.ActionLink("Delete", "Delete"/*, new { id = item.Test_ID }*/)
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
         </tr>
     }

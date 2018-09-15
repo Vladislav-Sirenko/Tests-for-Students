@@ -8,12 +8,13 @@
 
     <div class="form-horizontal">
         <h4>Test</h4>
+        <h2 id="countdown"></h2>
         <hr />
 
 
 
-        <h2>@Html.DisplayFor(modelitem => Model.Test_ID)- @Html.DisplayFor(modelitem => Model.Topic)</h2>
-        @using (Html.BeginForm("Check", "Test", FormMethod.Post))
+        <h2>@Html.DisplayFor(modelitem => Model.Topic)</h2>
+        @using (Html.BeginForm("Check", "Test", FormMethod.Post, new { id = "Form" }))
         {
             @Html.HiddenFor(model => model.Test_ID)
             @Html.HiddenFor(model => model.Student_ID)
@@ -24,4 +25,24 @@
             <input type="submit" />
         }
     </div>
-}
+
+<script>
+    var dt = @Model.TimeForTest*60;
+    
+    function showRemaining() {
+        dt--;
+        if (dt < 0) {
+            clearInterval(timer);
+            document.getElementById('countdown').innerHTML = 'EXPIRED!';
+            document.getElementById("Form").submit();
+
+            return;
+        }
+        var minutes = Math.floor(dt / 60);
+        var seconds = dt % 60;
+        document.getElementById('countdown').innerHTML = minutes + ':';
+        document.getElementById('countdown').innerHTML += seconds;
+    }
+    timer = setInterval(showRemaining, 1000);
+    </script>
+    }

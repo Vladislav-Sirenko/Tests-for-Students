@@ -14,5 +14,8 @@ namespace BLL.Interfaces
         Task<OperationDetails> Create(UserDTO userDto);
         Task<ClaimsIdentity> Authenticate(UserDTO userDto);
         Task SetInitialData(UserDTO adminDto, List<string> roles);
+        IEnumerable<UserDTO> GetUsers();
+        void DeleteUser(string id);
+        UserDTO GetUser(string id);
     }
 }
