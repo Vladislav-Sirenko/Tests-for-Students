@@ -12,6 +12,7 @@ namespace DAL.Entities
         [Key]
         public int Question_ID { get; set; }
         public string content { get; set; }
+        public bool ISFULL { get; set; }
         [ForeignKey("Test")]
         public int Test_ID { get; set; }
         public Test Test { get; set; }

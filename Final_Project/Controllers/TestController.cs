@@ -30,7 +30,7 @@ namespace Final_Project.Controllers
             {
                 Test_ID = testDTO.Test_ID,
                 Topic = testDTO.Topic,
-                TimeForTest = testDTO.TimeForTest
+                TimeForTest = testDTO.TimeForTest,              
             };
             testView.Questions = new List<QuestionAnswerViewModel>();
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<AnswerDTO, AnswerViewModel>()).CreateMapper();
@@ -40,7 +40,9 @@ namespace Final_Project.Controllers
                 {
                     Question_ID = quest.Question_ID,
                     Test_ID = quest.Test_ID,
-                    content = quest.content
+                    content = quest.content,
+                    ISFULL=quest.ISFULL
+                    
                 };
                 testView.Questions.Add(qvm);
                 qvm.Answers = mapper.Map<IEnumerable<AnswerDTO>, List<AnswerViewModel>>(quest.Answers);
@@ -64,7 +66,7 @@ namespace Final_Project.Controllers
             resultView.Count_of_questions = testView.Questions.Count;
             return View(resultView);
         }
-
+        
         protected override void Dispose(bool disposing)
         {
             TestFormingService.Dispose();

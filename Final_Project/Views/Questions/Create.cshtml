@@ -22,7 +22,16 @@
         </div>
 
 
-        @Html.ValidationMessageFor(model => model.Test_ID, "", new { @class = "text-danger" })
+      
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ISFULL, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.ISFULL)
+                @Html.ValidationMessageFor(model => model.ISFULL, "", new { @class = "text-danger" })
+            </div>
+        </div>
     </div>
 
 
@@ -31,12 +40,11 @@
             <input type="submit" value="Create" class="btn btn-default" />
         </div>
     </div>
+    </div>
 
 }
 
-    <div>
-        @Html.ActionLink("Back to List", "Details", "Tests", new { id = Model.Test_ID }, null)
-    </div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

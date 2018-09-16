@@ -11,5 +11,6 @@ namespace BLL.DTO
         public int Answer_ID { get; set; }
         public string content { get; set; }
         public bool ISCorrect { get; set; }
+       
     }
 }

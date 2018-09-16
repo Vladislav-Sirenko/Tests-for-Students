@@ -25,10 +25,12 @@
             <input type="submit" />
         }
     </div>
-
-<script>
+   
+      
+          
+        <script>
     var dt = @Model.TimeForTest*60;
-    
+
     function showRemaining() {
         dt--;
         if (dt < 0) {
@@ -44,5 +46,5 @@
         document.getElementById('countdown').innerHTML += seconds;
     }
     timer = setInterval(showRemaining, 1000);
-    </script>
-    }
+        </script>
+        }

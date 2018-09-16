@@ -56,13 +56,14 @@ namespace Final_Project.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Question_ID,content,Test_ID, Topic")] QuestionViewModel question, int? id)
+        public ActionResult Create([Bind(Include = "Question_ID,content,ISFULL,Test_ID, Topic")] QuestionViewModel question, int? id)
         {
             if (ModelState.IsValid)
             {
                 var mapper = new MapperConfiguration(cfg => cfg.CreateMap<QuestionViewModel, QuestionDTO>()).CreateMapper();
                 QuestionDTO questionDTO = mapper.Map<QuestionViewModel, QuestionDTO>(question);
                 questionDTO.Test_ID = id.Value;
+               // questionDTO.ISFULL = question.ISFULL;
                 QuestionService.CreateQuestion(questionDTO);
                 return RedirectToAction("Details", "Tests", new { id = questionDTO.Test_ID });
             }
