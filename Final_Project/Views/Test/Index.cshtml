@@ -6,25 +6,34 @@
 
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Test</h4>
-        <h2 id="countdown"></h2>
-        <hr />
+<div class="TestMain" style="border-radius:15px; padding:2%; background-image: linear-gradient(to bottom,LightBlue 0%,#fff 100%);">
+
+    <h2 style="color:green;">Test  Started</h2>
+    <h2 id="countdown" style="position:fixed;margin-left:50%;"></h2>
+    <hr />
 
 
-
-        <h2>@Html.DisplayFor(modelitem => Model.Topic)</h2>
+    <div class=" TestMain"></div>
+    <h2>@Html.DisplayFor(modelitem => Model.Topic)</h2>
+    
         @using (Html.BeginForm("Check", "Test", FormMethod.Post, new { id = "Form" }))
-        {
-            @Html.HiddenFor(model => model.Test_ID)
-            @Html.HiddenFor(model => model.Student_ID)
-            @Html.HiddenFor(model => model.Topic)
-            @Html.HiddenFor(model => model.Questions.Count)
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.EditorFor(x => x.Questions)
-            <input type="submit" />
-        }
-    </div>
+    {
+        @Html.HiddenFor(model => model.Test_ID)
+        @Html.HiddenFor(model => model.Student_ID)
+        @Html.HiddenFor(model => model.Topic)
+        @Html.HiddenFor(model => model.Questions.Count)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.EditorFor(x => x.Questions)
+       
+            <input style=" color:green;width:150px;height:50px;margin-left:20%;border-radius:15px;background-color:dodgerblue; 
+            border:1px solid silver; border: 1px solid #ccc;
+            box-shadow: 20px -15px 10px 5px rgba(0, 0, 0, .2); " type="submit" />
+       
+  
+
+    }
+</div>
+    
    
       
           

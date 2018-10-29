@@ -4,12 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title – приложение ASP.NET</title>
+    <title>@ViewBag.Title – BrainMoney</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,15 +17,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Student Testing", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Classes and disciplines", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Tests", "Index", "Tests")</li>
+                    <li>@Html.ActionLink("Score Table", "ScoreTable", "User")</li>
                     @if (User.IsInRole("admin"))
-                    {
-                    <li>@Html.ActionLink("Users", "Index", "User")</li>
-                    }
+    {
+                <li>@Html.ActionLink("Users", "Index", "User")</li>
+}
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,8 +35,8 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+        <footer style="margin-left:70%;margin-top:3%;">
+            <p>&copy; @DateTime.Now.Year – BrainMoney</p>
         </footer>
     </div>
 

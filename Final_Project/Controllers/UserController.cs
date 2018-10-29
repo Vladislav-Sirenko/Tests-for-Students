@@ -8,6 +8,7 @@ using BLL.Interfaces;
 using AutoMapper;
 using BLL.Infrastructure;
 using PL.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Final_Project.Controllers
 {
@@ -35,7 +36,7 @@ namespace Final_Project.Controllers
             {
                 throw new ValidationException("Ид пользователя не найдено", "");
             }
-            var User=UserService.GetUser(id);
+            var User = UserService.GetUser(id);
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<UserDTO, UserViewModel>()).CreateMapper();
             UserViewModel userView = mapper.Map<UserDTO, UserViewModel>(User);
             if (userView == null)
@@ -54,5 +55,23 @@ namespace Final_Project.Controllers
             UserService.DeleteUser(id);
             return RedirectToAction("Index");
         }
+
+        public ActionResult ScoreTable(int? changeScore)
+        {
+            UserDTO userDTO = UserService.GetUser(User.Identity.GetUserId());
+            if (changeScore != null)
+            {
+                userDTO.Score -= changeScore.Value;                   
+            }
+
+            return View(userDTO);
+        }
+
+        public ActionResult Buy(int price)
+        {
+            UserDTO userDTO = UserService.GetUser(User.Identity.GetUserId());
+           return RedirectToAction("ScoreTable",new { changeScore = price });
+        }
+
     }
 }

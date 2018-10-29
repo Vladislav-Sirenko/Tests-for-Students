@@ -846,6 +846,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\ScoreTable.cshtml" />
+    <Content Include="Views\User\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

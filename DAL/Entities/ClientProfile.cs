@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DAL.Entities
@@ -11,6 +12,8 @@ namespace DAL.Entities
 
         public string Name { get; set; }
         public string Address { get; set; }
+        [DefaultValue(0)]
+        public int Score { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
     }

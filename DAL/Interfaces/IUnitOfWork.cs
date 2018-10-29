@@ -14,7 +14,9 @@ namespace DAL.Interfaces
         IRepository<Answer> Answers { get; }
         IRepository<Question> Questions { get; }
         IRepository<Result> Results { get; }
-       
+        IRepository<Disciplines_classes> Disciplines_classes { get; }
+        IRepository<ClientProfile> ClientProfile{ get; }
+
         void Save();
 
         ApplicationUserManager UserManager { get; }

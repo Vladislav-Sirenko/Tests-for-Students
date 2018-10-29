@@ -42,6 +42,9 @@ namespace BLL.Services
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ResultDTO, Result>()).CreateMapper();
             Result result = mapper.Map<ResultDTO, Result>(resultDTO);
             Database.Results.Create(result);
+            var user = Database.ClientProfile.Find(usr => usr.Id == User_ID).First();
+            user.Score += resultDTO.Score * 10;
+            Database.ClientProfile.Update(user);
             return resultDTO;
         }
 

@@ -19,6 +19,8 @@ namespace DAL.Repositories
         private EFGenericRepository<Answer> AnswerRepository;
         private EFGenericRepository<Question> QuestionRepository;
         private EFGenericRepository<Result> ResultRepository;
+        private EFGenericRepository<Disciplines_classes> Disciplines_classesRepository;
+        private EFGenericRepository<ClientProfile> ClientProfileRepository;
 
         private ApplicationUserManager userManager;
         private ApplicationRoleManager roleManager;
@@ -85,7 +87,27 @@ namespace DAL.Repositories
             get { return roleManager; }
         }
 
-        public void Save()
+        public IRepository<Disciplines_classes> Disciplines_classes 
+            {
+            get
+            {
+                if (Disciplines_classesRepository == null)
+                    Disciplines_classesRepository = new EFGenericRepository<Disciplines_classes>(db);
+                return Disciplines_classesRepository;
+            }
+            }
+
+        public IRepository<ClientProfile> ClientProfile
+        {
+            get
+            {
+                if (ClientProfileRepository == null)
+                    ClientProfileRepository = new EFGenericRepository<ClientProfile>(db);
+                return ClientProfileRepository;
+            }
+        }
+
+    public void Save()
         {
             db.SaveChanges();
         }

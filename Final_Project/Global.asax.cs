@@ -22,7 +22,6 @@ namespace Final_Project
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            // внедрение зависимостей
             NinjectModule orderModule = new TestModule();
             NinjectModule serviceModule = new ServiceModule("DefaultConnection");
             var kernel = new StandardKernel(orderModule, serviceModule);

@@ -74,6 +74,7 @@
     <Compile Include="Interfaces\IResultService.cs" />
     <Compile Include="Interfaces\IServiceCreator.cs" />
     <Compile Include="Interfaces\ITestChecking.cs" />
+    <Compile Include="Interfaces\ITestCoordinator.cs" />
     <Compile Include="Interfaces\ITestForming.cs" />
     <Compile Include="Interfaces\ITestService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Services\ResultService.cs" />
     <Compile Include="Services\ServiceCreator.cs" />
     <Compile Include="Services\TestChecking.cs" />
+    <Compile Include="Services\TestCoordinator.cs" />
     <Compile Include="Services\TestForming.cs" />
     <Compile Include="Services\TestService.cs" />
     <Compile Include="Services\UserService.cs" />
