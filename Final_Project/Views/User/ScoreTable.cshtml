@@ -1,0 +1,43 @@
+﻿@model BLL.DTO.UserDTO
+
+@{
+    ViewBag.Title = "Index";
+}
+<div style="font-weight: bold;font-size:2em;'Comic Sans MS'; text-align:center;">THIS WEEK TICKETS</div>
+<div class="Tickets">
+    <div style="font-weight: bold;font-family:'Comic Sans MS';">
+        <p style="color:red;">-5% off</p><p>Tiket</p>ROLLERDROME,SKATES<p style="color:DeepSkyBlue;">Only 20 points</p>
+        @Html.ActionLink("Get this", "Buy", "User", new { price = 20 }, new { @class = "navbar-brand" })
+    </div>
+    <div style="font-weight: bold;font-family:'Comic Sans MS';">
+        <p style="color:red;">-10% off</p><p>Tiket</p>TRAMPOLINE,AQUAPARK,<p style="color:DeepSkyBlue;">Only 35 points</p>
+        @Html.ActionLink("Get this", "Buy", "User", new { price = 35 }, new { @class = "navbar-brand" })
+    </div>
+    <div style="font-weight: bold;font-family:'Comic Sans MS';">
+        <p style="color:red;">-15% off</p><p>Tiket</p>AQUAPARK,BOWLING<p style="color:DeepSkyBlue;">Only 50 points</p>
+        @Html.ActionLink("Get this", "Buy", "User", new { price = 50 }, new { @class = "navbar-brand" })
+    </div>
+</div>
+<h2>
+    Score Table
+</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => Model.Name)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => Model.UserName)
+        </td>
+        <th>
+            @Html.DisplayNameFor(model => Model.Score)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Score)
+        </td>
+        <th></th>
+    </tr>
+
+</table>
+
