@@ -32,9 +32,7 @@ namespace BLL.Services
                 var result = await Database.UserManager.CreateAsync(user, userDto.Password);
                 if (result.Errors.Count() > 0)
                     return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
-                // добавляем роль
                 await Database.UserManager.AddToRoleAsync(user.Id, userDto.Role);
-                // создаем профиль клиента
                 ClientProfile clientProfile = new ClientProfile { Id = user.Id, Address = userDto.Address, Name = userDto.Name };
                 Database.ClientManager.Create(clientProfile);
                 await Database.SaveAsync();
@@ -75,9 +73,21 @@ namespace BLL.Services
         public IEnumerable<UserDTO> GetUsers()
         {
             var Users = Database.UserManager.Users.ToList();
+            int i = 0;
+            int[] n = new int[Users.Capacity];
+            foreach(var user in Users)
+            {
+                n[i] = user.ClientProfile.Score;
+                i++;
+            }
+            i = 0;
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ApplicationUser,UserDTO>()).CreateMapper();
             var UsersDTO = mapper.Map<IEnumerable<ApplicationUser>, IEnumerable<UserDTO>>(Users);
-            
+           foreach(var user in UsersDTO)
+            {
+                user.Score = n[i];
+                     i++;
+            }
             return UsersDTO;
         }
         public void DeleteUser(string id)
@@ -91,6 +101,7 @@ namespace BLL.Services
             var User = Database.UserManager.FindById(id);
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ApplicationUser, UserDTO>()).CreateMapper();
             var UsersDTO = mapper.Map<ApplicationUser, UserDTO>(User);
+            UsersDTO.Score = User.ClientProfile.Score;
 
             return UsersDTO;
         }

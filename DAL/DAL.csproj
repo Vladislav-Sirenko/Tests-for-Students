@@ -58,6 +58,7 @@
     <Compile Include="Entities\ApplicationRole.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Entities\ClientProfile.cs" />
+    <Compile Include="Entities\Disciplines and classes.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\Result.cs" />
     <Compile Include="Entities\Test.cs" />

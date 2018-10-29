@@ -1,17 +1,14 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<main>
+    <div class="Classes">
+        <div style="padding-left:21%; padding-top:11%;"> @Html.ActionLink("First class", "Result", "Home", new { C_id = 1 }, new { @class = "navbar-brand" })</div>
+        <div style="padding-left:21%; padding-top:11%;"> @Html.ActionLink("Second class", "Result", "Home", new { C_id = 2 }, new { @class = "navbar-brand" })</div>
+        <div style="padding-left:21%; padding-top:11%;"> @Html.ActionLink("Third class", "Result", "Home", new { C_id = 3 }, new { @class = "navbar-brand" })</div>
+    </div>
+    <div class="Classes">
+        <div style="padding-left:21%; padding-top:11%;"> @Html.ActionLink("Fourth class", "Result", "Home", new { C_id = 4 }, new { @class = "navbar-brand" })</div>
+        <div style="padding-left:21%; padding-top:11%;"> @Html.ActionLink("Fifth class", "Result", "Home", new { C_id = 5 }, new { @class = "navbar-brand" })</div>
+        <div style="padding-left:21%; padding-top:11%;"> @Html.ActionLink("Sixth class", "Result", "Home", new { C_id = 6 }, new { @class = "navbar-brand" })</div>
+    </div>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+</main>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>

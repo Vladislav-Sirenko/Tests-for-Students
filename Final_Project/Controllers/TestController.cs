@@ -59,11 +59,11 @@ namespace Final_Project.Controllers
             }
             string User_ID = User.Identity.GetUserId();
             var result = TestCheckingService.GetScore(testView.Test_ID, User_ID, user_answers);
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ResultDTO, ResultViewModel>()).CreateMapper()
-                ;
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ResultDTO, ResultViewModel>()).CreateMapper();
             ResultViewModel resultView = mapper.Map<ResultDTO, ResultViewModel>(result);
             resultView.Test_Topic = testView.Topic;
             resultView.Count_of_questions = testView.Questions.Count;
+            
             return View(resultView);
         }
         

@@ -18,10 +18,6 @@ namespace Final_Project.Controllers
         public AnswersController(IAnswerService Answerserv)
         {
             AnswerService = Answerserv;
-
-
-
-
         }
         //  private Final_ProjectContext db = new Final_ProjectContext();
 

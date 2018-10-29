@@ -3,28 +3,54 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BLL.Interfaces;
 
 namespace Final_Project.Controllers
 {
     public class HomeController : Controller
     {
+
+        ITestCoordinator TestService;
+        public HomeController(ITestCoordinator TestServ)
+        {
+            TestService = TestServ;
+        }
+        static int Di_id;
+        static int Cl_id;
         public ActionResult Index()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else return RedirectToAction("Index", "UserTests");
         }
+    
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else return RedirectToAction("Index", "UserTests");
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact(int D_id)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                Di_id = D_id;
+                return View();
+            }
+            else return RedirectToAction("Index", "UserTests");
+            
+        }
+        public RedirectToRouteResult Result(int C_id)
+        {
+            Cl_id = C_id;
+            var testId=TestService.GetTest(Di_id, C_id);
+            return RedirectToAction("Index", "Test", new { id = testId });
         }
     }
 }

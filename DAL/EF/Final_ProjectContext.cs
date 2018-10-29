@@ -27,5 +27,7 @@ namespace DAL.EF
         public System.Data.Entity.DbSet<DAL.Entities.Answer> Answers { get; set; }
         public System.Data.Entity.DbSet<DAL.Entities.Result> Results { get; set; }
         public DbSet<ClientProfile> ClientProfiles { get; set; }
+        public DbSet<Disciplines_classes> Disciplines_classes { get; set; }
+
     }
 }
